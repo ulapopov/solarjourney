@@ -1,3 +1,4 @@
+import logging
 import openai
 import os
 
@@ -19,10 +20,17 @@ memory = []
 
 @app.route('/')
 def home():
-    return render_template('index.html')  # Ensure you create this template in the templates folder
+    app.logger.info('Home page requested')
+    return render_template('index.html')
 
 @socketio.on('message from user')
 def handle_message(msg):
+    try:
+        app.logger.info(f'Sending message to OpenAI API: {msg}')
+        # Your OpenAI API call here
+        app.logger.info(f'Received response from OpenAI API')
+    except Exception as e:
+        app.logger.error(f'Error calling OpenAI API: {e}')
     try:
         memory.append({"role": "user", "content": msg})  # Add the new user message to memory
   # Add the new message to memory
