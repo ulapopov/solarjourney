@@ -5,7 +5,7 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO
 from openai import OpenAI
 
-os.environ["OPENAI_API_KEY"] = "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"
+#os.environ["OPENAI_API_KEY"] = "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"
 openai.api_key = os.getenv('OPENAI_API_KEY')
 client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY"),
@@ -52,6 +52,8 @@ def handle_message(msg):
 
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, port=5001, allow_unsafe_werkzeug=True)
+    port = int(os.environ.get("PORT", 5001))
+    socketio.run(app, debug=True, port=port, allow_unsafe_werkzeug=True)
+
 
 
