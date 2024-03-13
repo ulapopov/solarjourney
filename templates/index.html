@@ -1,17 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 <style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f9;
+    }
+    #chat-container {
+        width: 90%;
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    #messages {
+        list-style-type: none;
+        padding: 0;
+        height: 300px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        border: 1px solid #e1e1e8;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    #messages li {
+        padding: 8px 16px;
+        margin: 5px 0;
+        border-radius: 20px;
+    }
     #userMessage {
-        width: 80%; /* Makes the input box wider */
-        padding: 10px; /* Adds some padding for text */
-        margin-bottom: 20px; /* Adds space below the input box */
+        width: calc(100% - 90px);
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        margin-right: 10px;
+    }
+    #sendButton {
+        width: 80px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    #sendButton {
+    background-color: #00008B; /* Match dark blue color */
+    font-family: 'Cinzel', serif; /* Match font */
+    }
+
+
+        body {
+        background-image: url('/static/astro_stars.webp');
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+    }
+    #chat-title {
+        text-align: center;
+        font-family: 'Cinzel', serif;
+        font-size: 36px;
+        margin: 20px 0;
+        font-weight: bold;
+        color: #00008B;
+    }
+
+    #messages {
+    background: rgba(255, 255, 255, 0.8); /* Lighter background */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Softer border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px;
+    /* ... */
+    }
+
+    #messages li {
+        background: rgba(255, 255, 255, 0.8); /* Messages are more readable on the dark background */
+        color: #000; /* Text color */
+        margin-bottom: 10px;
+    }
+    #userMessage, #sendButton {
+        margin-top: 10px; /* Adjust spacing */
     }
 </style>
+
     <meta charset="UTF-8">
 <title>Chatbot</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
 <script type="text/javascript">
+    function scrollToBottom() {
+        var messages = document.querySelector('#messages');
+        messages.scrollTop = messages.scrollHeight;
+    }
+
     document.addEventListener('DOMContentLoaded', (event) => {
         var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
 
@@ -19,29 +105,53 @@
             console.log('Websocket connected!');
         });
 
-        document.querySelector('#sendButton').onclick = () => {
+        // This is for sending messages. If your button triggers this, ensure the code is here.
+        let sendFunction = () => {
             let user_input = document.querySelector('#userMessage').value;
-            let msg_list = document.querySelector('#messages');
-            let user_msg = document.createElement('li'); // Create a new list item for the user's message
-            user_msg.textContent = "You: " + user_input; // Prefix the message with "You:" to indicate it's from the user
-            msg_list.appendChild(user_msg); // Append the user's message to the list
+            if (user_input.trim()) {
+                let msg_list = document.querySelector('#messages');
+                let user_msg = document.createElement('li');
+                user_msg.textContent = "You: " + user_input;
+                msg_list.appendChild(user_msg);
 
-            socket.emit('message from user', user_input); // Send the user's message to the server
-            document.querySelector('#userMessage').value = ''; // Clear the input box after sending
+                socket.emit('message from user', user_input);
+                document.querySelector('#userMessage').value = '';
+                scrollToBottom();
+            }
         };
+
+        // Assuming your 'Send' button calls sendFunction() on click
+        document.querySelector('#sendButton').addEventListener('click', sendFunction);
+
+        document.querySelector('#userMessage').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault(); // Prevents the default action of the enter key
+                sendFunction();
+            }
+        });
 
         socket.on('message from server', (msg) => {
             let msg_list = document.querySelector('#messages');
-            let new_msg = document.createElement('li'); // Create a new list item for the server's message
-            new_msg.textContent = "Angela: " + msg; // Prefix the message with "Bot:" to indicate it's from the bot
-            msg_list.appendChild(new_msg); // Append the bot's message to the list
+            let new_msg = document.createElement('li');
+            new_msg.textContent = "Angela: " + msg;
+            msg_list.appendChild(new_msg);
+            scrollToBottom();
         });
+
+        function scrollToBottom() {
+            var messages = document.querySelector('#messages');
+            messages.scrollTop = messages.scrollHeight;
+        }
     });
+
 </script>
 </head>
 <body>
-    <ul id="messages"></ul>
-    <input type="text" id="userMessage">
-    <button id="sendButton">Send</button>
+    <div id="chat-container">
+        <h2 id="chat-title">Stars are always there for you</h2>
+        <ul id="messages"></ul>
+        <input type="text" id="userMessage">
+        <button id="sendButton">Send</button>
+    </div>
 </body>
 </html>

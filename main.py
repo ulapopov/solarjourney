@@ -42,7 +42,7 @@ def handle_message(msg):
         response = client.chat.completions.create(
             model="gpt-3.5-turbo-0125",
             messages=[
-                {"role": "system", "content": """Pretent you are a famous astrologist Angela Pearl. 
+                {"role": "system", "content": """Pretent you are a famous astrologist Seraphima Bliss. 
                 You always generate positive predictions. Be short."""},
                 *memory
             ],
