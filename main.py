@@ -1,12 +1,12 @@
 import logging
 import openai
 import os
+import logging
 
 from flask import Flask, render_template
 from flask_socketio import SocketIO
 from openai import OpenAI
 
-#os.environ["OPENAI_API_KEY"] = "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"
 openai.api_key = os.getenv('OPENAI_API_KEY')
 client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY"),
@@ -31,6 +31,7 @@ def handle_message(msg):
         app.logger.info(f'Received response from OpenAI API')
     except Exception as e:
         app.logger.error(f'Error calling OpenAI API: {e}')
+
     try:
         memory.append({"role": "user", "content": msg})  # Add the new user message to memory
   # Add the new message to memory
