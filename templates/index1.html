@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    #userMessage {
+        width: 80%; /* Makes the input box wider */
+        padding: 10px; /* Adds some padding for text */
+        margin-bottom: 20px; /* Adds space below the input box */
+    }
+</style>
+    <meta charset="UTF-8">
+<title>Chatbot</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+<script type="text/javascript">
+    var socket;
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('connect', () => {
+            console.log('Websocket connected!');
+        });
+
+        document.querySelector('#sendButton').onclick = () => {
+            let user_input = document.querySelector('#userMessage').value;
+            socket.emit('message from user', user_input);
+            document.querySelector('#userMessage').value = '';
+        };
+
+        socket.on('message from server', (msg) => {
+            let msg_list = document.querySelector('#messages');
+            let new_msg = document.createElement('li');
+            new_msg.textContent = msg;
+            msg_list.appendChild(new_msg);
+        });
+    });
+</script>
+</head>
+<body>
+    <ul id="messages"></ul>
+    <input type="text" id="userMessage">
+    <button id="sendButton">Send</button>
+</body>
+</html>
