@@ -17,17 +17,12 @@ client = OpenAI(
 app = Flask(__name__)
 
 # Setup basic configuration
-logging.basicConfig(level=logging.INFO)
+#logging.basicConfig(level=logging.INFO)
 
-# Create a stream handler that logs to stdout
-stream_handler = StreamHandler(sys.stdout)
+stream_handler = logging.StreamHandler(sys.stdout)
 stream_handler.setLevel(logging.INFO)
-
-# Get the logger for your Flask app and add the stream handler to it
 app.logger.addHandler(stream_handler)
-
-
-
+app.logger.setLevel(logging.INFO)
 
 # @app.before_request
 # def before_request_logging():
