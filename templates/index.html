@@ -1,67 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100vh;
-        background-image: url('/static/astro_stars.webp');
-        background-size: cover;
-        background-position: center;
-        color: #ffffff;
-    }
-    .container {
-        width: 80%;
-        max-width: 1200px;
-        margin-top: 20px;
-    }
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ececec; /* Background color */
+            background-image: url('/static/astro_stars.webp');
+        }
 
-    #chat-container {
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 15px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        height: 50%; /* Adjust based on your content */
-    }
-    .service-box {
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 15px;
-        padding: 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        height: 150px; /* Adjust based on your content */
-        margin-bottom: 20px;
-    }
-    .flex-row {
-        display: flex;
-        justify-content: space-between;
-    }
-    .service-box > h3 {
-        color: #000;
-        text-align: center;
-    }
+        .content-container {
+            width: 80%; /* Container width */
+            max-width: 1200px; /* Maximum width */
+            display: flex;
+            justify-content: space-between; /* Spacing between title and chat area */
+            align-items: center;
+            margin-top: -100px; /* Adjust as needed for your layout */
+        }
 
-    #tarot, #numerology, #natal-chart {
-        grid-row: 2;
-    }
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: 64px; /* Large font size for the title */
+            color: #333; /* Title color */
+            flex-basis: 40%; /* Takes up 40% of the content container */
+        }
 
-    #tarot {
-        grid-column: 1;
-    }
+        .chat-area {
+            flex-basis: 58%; /* Takes up 58% of the content container, adjust as needed */
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            padding: 20px;
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            display: flex;
+            flex-direction: column;
+        }
 
-    #numerology {
-        grid-column: 2;
-    }
-
-    #natal-chart {
-        grid-column: 3;
-    }
 
     #messages {
         list-style-type: none;
@@ -168,26 +148,12 @@
 </script>
 </head>
 <body>
-    <div class="container">
-        <div id="chat-container">
-            <h2 id="chat-title">Stars are always there for you</h2>
-            <ul id="messages"></ul>
-            <input type="text" id="userMessage">
-            <button id="sendButton">Send</button>
+    <div class="content-container">
+        <div class="title">
+            Stars are always there for you
         </div>
-        <div class="flex-row">
-            <div class="service-box" id="tarot">
-                <h3>Tarot</h3>
-                <!-- Content for tarot -->
-            </div>
-            <div class="service-box" id="numerology">
-                <h3>Numerology</h3>
-                <!-- Content for numerology -->
-            </div>
-            <div class="service-box" id="natal-chart">
-                <h3>Natal Chart Map</h3>
-                <!-- Content for natal chart map -->
-            </div>
+        <div class="chat-area">
+            <!-- Chat content will go here -->
         </div>
     </div>
 </body>
