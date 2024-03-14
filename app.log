@@ -1,0 +1,780 @@
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:29:44] "GET /socket.io/?EIO=4&transport=polling&t=Ouwb5dh HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:29:44] "POST /socket.io/?EIO=4&transport=polling&t=Ouwb5hE&sid=ySPFfL6UdF3lpm4aAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:29:44] "GET /socket.io/?EIO=4&transport=polling&t=Ouwb5hF&sid=ySPFfL6UdF3lpm4aAAAA HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:33:39] "GET /socket.io/?EIO=4&transport=polling&t=Ouwb-_b HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:33:39] "POST /socket.io/?EIO=4&transport=polling&t=Ouwb-_j&sid=o8Vu4bEkEeDlZJz3AAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:33:39] "GET /socket.io/?EIO=4&transport=polling&t=Ouwb-_k&sid=o8Vu4bEkEeDlZJz3AAAA HTTP/1.1" 200 -
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:37:12] "GET /socket.io/?EIO=4&transport=polling&t=Ouwcobx HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:37:12] "POST /socket.io/?EIO=4&transport=polling&t=Ouwcov7&sid=_mGJPaSgw5ir5KJAAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:37:12] "GET /socket.io/?EIO=4&transport=polling&t=Ouwcov8&sid=_mGJPaSgw5ir5KJAAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:37:13] "GET /socket.io/?EIO=4&transport=websocket&sid=_mGJPaSgw5ir5KJAAAAA HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:37:13.686121 - Request: GET http://127.0.0.1:5001/ - Data: None
+INFO:main:Home page requested
+INFO:root:2024-03-13 18:37:13.713375 - Response: 200 OK - <!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f9;
+    }
+    #chat-container {
+        width: 90%;
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    #messages {
+        list-style-type: none;
+        padding: 0;
+        height: 300px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        border: 1px solid #e1e1e8;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    #messages li {
+        padding: 8px 16px;
+        margin: 5px 0;
+        border-radius: 20px;
+    }
+    #userMessage {
+        width: calc(100% - 90px);
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        margin-right: 10px;
+    }
+    #sendButton {
+        width: 80px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    #sendButton {
+    background-color: #00008B; /* Match dark blue color */
+    font-family: 'Cinzel', serif; /* Match font */
+    }
+
+
+        body {
+        background-image: url('/static/astro_stars.webp');
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+    }
+    #chat-title {
+        text-align: center;
+        font-family: 'Cinzel', serif;
+        font-size: 36px;
+        margin: 20px 0;
+        font-weight: bold;
+        color: #00008B;
+    }
+
+    #messages {
+    background: rgba(255, 255, 255, 0.8); /* Lighter background */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Softer border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px;
+    /* ... */
+    }
+
+    #messages li {
+        background: rgba(255, 255, 255, 0.8); /* Messages are more readable on the dark background */
+        color: #000; /* Text color */
+        margin-bottom: 10px;
+    }
+    #userMessage, #sendButton {
+        margin-top: 10px; /* Adjust spacing */
+    }
+</style>
+
+    <meta charset="UTF-8">
+<title>Chatbot</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+<script type="text/javascript">
+    function scrollToBottom() {
+        var messages = document.querySelector('#messages');
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+
+        socket.on('connect', () => {
+            console.log('Websocket connected!');
+        });
+
+        // This is for sending messages. If your button triggers this, ensure the code is here.
+        let sendFunction = () => {
+            let user_input = document.querySelector('#userMessage').value;
+            if (user_input.trim()) {
+                let msg_list = document.querySelector('#messages');
+                let user_msg = document.createElement('li');
+                user_msg.textContent = "You: " + user_input;
+                msg_list.appendChild(user_msg);
+
+                socket.emit('message from user', user_input);
+                document.querySelector('#userMessage').value = '';
+                scrollToBottom();
+            }
+        };
+
+        // Assuming your 'Send' button calls sendFunction() on click
+        document.querySelector('#sendButton').addEventListener('click', sendFunction);
+
+        document.querySelector('#userMessage').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault(); // Prevents the default action of the enter key
+                sendFunction();
+            }
+        });
+
+        socket.on('message from server', (msg) => {
+            let msg_list = document.querySelector('#messages');
+            let new_msg = document.createElement('li');
+            new_msg.textContent = "Seraphima: " + msg;
+            msg_list.appendChild(new_msg);
+            scrollToBottom();
+        });
+
+        function scrollToBottom() {
+            var messages = document.querySelector('#messages');
+            messages.scrollTop = messages.scrollHeight;
+        }
+    });
+
+</script>
+</head>
+<body>
+    <div id="chat-container">
+        <h2 id="chat-title">Stars are always there for you</h2>
+        <ul id="messages"></ul>
+        <input type="text" id="userMessage">
+        <button id="sendButton">Send</button>
+    </div>
+</body>
+</html>
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:37:13] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:37:14] "GET /socket.io/?EIO=4&transport=polling&t=OuwcpOS HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:37:14.283194 - Request: GET http://127.0.0.1:5001/static/astro_stars.webp - Data: None
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:37:14] "[35m[1mGET /static/astro_stars.webp HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:37:14] "POST /socket.io/?EIO=4&transport=polling&t=OuwcpQE&sid=Cbpz-tADrKP2CyPdAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:37:14] "GET /socket.io/?EIO=4&transport=polling&t=OuwcpQF&sid=Cbpz-tADrKP2CyPdAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:37:15] "GET /socket.io/?EIO=4&transport=polling&t=Ouwcpbd&sid=Cbpz-tADrKP2CyPdAAAC HTTP/1.1" 200 -
+INFO:main:Sending message to OpenAI API: Good evening!
+INFO:main:Received response from OpenAI API
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:Sending message to OpenAI API: What kind of opportunities?
+INFO:main:Received response from OpenAI API
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:Sending message to OpenAI API: Is it? What should I do to feel it?
+INFO:main:Received response from OpenAI API
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:39:31] "GET /socket.io/?EIO=4&transport=polling&t=OuwdKn4 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:39:31] "POST /socket.io/?EIO=4&transport=polling&t=OuwdKnB&sid=drtHoaSzkHns6ufJAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:39:31] "GET /socket.io/?EIO=4&transport=polling&t=OuwdKnC&sid=drtHoaSzkHns6ufJAAAA HTTP/1.1" 200 -
+INFO:main:Sending message to OpenAI API: Good bye!
+INFO:main:Received response from OpenAI API
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:39:45] "GET /socket.io/?EIO=4&transport=websocket&sid=drtHoaSzkHns6ufJAAAA HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:39:45.156814 - Request: GET http://127.0.0.1:5001/ - Data: None
+INFO:main:Home page requested
+INFO:root:2024-03-13 18:39:45.179912 - Response: 200 OK - <!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f9;
+    }
+    #chat-container {
+        width: 90%;
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    #messages {
+        list-style-type: none;
+        padding: 0;
+        height: 300px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        border: 1px solid #e1e1e8;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    #messages li {
+        padding: 8px 16px;
+        margin: 5px 0;
+        border-radius: 20px;
+    }
+    #userMessage {
+        width: calc(100% - 90px);
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        margin-right: 10px;
+    }
+    #sendButton {
+        width: 80px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    #sendButton {
+    background-color: #00008B; /* Match dark blue color */
+    font-family: 'Cinzel', serif; /* Match font */
+    }
+
+
+        body {
+        background-image: url('/static/astro_stars.webp');
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+    }
+    #chat-title {
+        text-align: center;
+        font-family: 'Cinzel', serif;
+        font-size: 36px;
+        margin: 20px 0;
+        font-weight: bold;
+        color: #00008B;
+    }
+
+    #messages {
+    background: rgba(255, 255, 255, 0.8); /* Lighter background */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Softer border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px;
+    /* ... */
+    }
+
+    #messages li {
+        background: rgba(255, 255, 255, 0.8); /* Messages are more readable on the dark background */
+        color: #000; /* Text color */
+        margin-bottom: 10px;
+    }
+    #userMessage, #sendButton {
+        margin-top: 1px; /* Adjust spacing */
+    }
+</style>
+
+    <meta charset="UTF-8">
+<title>Chatbot</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+<script type="text/javascript">
+    function scrollToBottom() {
+        var messages = document.querySelector('#messages');
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+
+        socket.on('connect', () => {
+            console.log('Websocket connected!');
+        });
+
+        // This is for sending messages. If your button triggers this, ensure the code is here.
+        let sendFunction = () => {
+            let user_input = document.querySelector('#userMessage').value;
+            if (user_input.trim()) {
+                let msg_list = document.querySelector('#messages');
+                let user_msg = document.createElement('li');
+                user_msg.textContent = "You: " + user_input;
+                msg_list.appendChild(user_msg);
+
+                socket.emit('message from user', user_input);
+                document.querySelector('#userMessage').value = '';
+                scrollToBottom();
+            }
+        };
+
+        // Assuming your 'Send' button calls sendFunction() on click
+        document.querySelector('#sendButton').addEventListener('click', sendFunction);
+
+        document.querySelector('#userMessage').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault(); // Prevents the default action of the enter key
+                sendFunction();
+            }
+        });
+
+        socket.on('message from server', (msg) => {
+            let msg_list = document.querySelector('#messages');
+            let new_msg = document.createElement('li');
+            new_msg.textContent = "Seraphima: " + msg;
+            msg_list.appendChild(new_msg);
+            scrollToBottom();
+        });
+
+        function scrollToBottom() {
+            var messages = document.querySelector('#messages');
+            messages.scrollTop = messages.scrollHeight;
+        }
+    });
+
+</script>
+</head>
+<body>
+    <div id="chat-container">
+        <h2 id="chat-title">Stars are always there for you</h2>
+        <ul id="messages"></ul>
+        <input type="text" id="userMessage">
+        <button id="sendButton">Send</button>
+    </div>
+</body>
+</html>
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:39:45] "GET / HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:39:45.363892 - Request: GET http://127.0.0.1:5001/static/astro_stars.webp - Data: None
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:39:45] "[35m[1mGET /static/astro_stars.webp HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:39:45] "GET /socket.io/?EIO=4&transport=polling&t=OuwdOJ6 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:39:45] "POST /socket.io/?EIO=4&transport=polling&t=OuwdOLI&sid=0PAidb1bV1OTwHMyAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:39:45] "GET /socket.io/?EIO=4&transport=polling&t=OuwdOLK&sid=0PAidb1bV1OTwHMyAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:39:45] "GET /socket.io/?EIO=4&transport=polling&t=OuwdOM-&sid=0PAidb1bV1OTwHMyAAAC HTTP/1.1" 200 -
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:44:15] "GET /socket.io/?EIO=4&transport=polling&t=OuweQHB HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:44:15] "POST /socket.io/?EIO=4&transport=polling&t=OuweQHK&sid=CHHAzQPQkZGyN4UKAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:44:15] "GET /socket.io/?EIO=4&transport=polling&t=OuweQHK.0&sid=CHHAzQPQkZGyN4UKAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:44:21] "GET /socket.io/?EIO=4&transport=websocket&sid=CHHAzQPQkZGyN4UKAAAA HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:44:21.049790 - Request: GET http://127.0.0.1:5001/ - Data: None
+INFO:main:Home page requested
+INFO:root:2024-03-13 18:44:21.072899 - Response: 200 OK - <!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url('/static/astro_stars.webp');
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+    }
+    #chat-container {
+        width: 90%;
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    #messages {
+        list-style-type: none;
+        padding: 10px;
+        height: 300px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.2); /* Softer border */
+        border-radius: 8px; /* Rounded corners */
+        background: rgba(255, 255, 255, 0.8); /* Lighter background for readability */
+    }
+    #messages li {
+        background: rgba(255, 255, 255, 0.8); /* Messages are more readable */
+        color: #000; /* Text color */
+        padding: 8px 16px;
+        margin-bottom: 10px; /* Ensure consistent spacing */
+        border-radius: 20px;
+    }
+    #userMessage {
+        width: calc(100% - 90px);
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        margin-right: 10px;
+        margin-top: 1px; /* Adjusted spacing */
+    }
+    #sendButton {
+        width: 80px;
+        background-color: #00008B; /* Match dark blue color */
+        color: white;
+        font-family: 'Cinzel', serif; /* Match font */
+        border: none;
+        border-radius: 20px;
+        padding: 10px;
+        cursor: pointer;
+        margin-top: 1px; /* Adjusted spacing */
+    }
+    #chat-title {
+        text-align: center;
+        font-family: 'Cinzel', serif;
+        font-size: 36px;
+        margin: 20px 0;
+        font-weight: bold;
+        color: #00008B; /* Dark blue */
+    }
+</style>
+
+
+    <meta charset="UTF-8">
+<title>Chatbot</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+<script type="text/javascript">
+    function scrollToBottom() {
+        var messages = document.querySelector('#messages');
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+
+        socket.on('connect', () => {
+            console.log('Websocket connected!');
+        });
+
+        // This is for sending messages. If your button triggers this, ensure the code is here.
+        let sendFunction = () => {
+            let user_input = document.querySelector('#userMessage').value;
+            if (user_input.trim()) {
+                let msg_list = document.querySelector('#messages');
+                let user_msg = document.createElement('li');
+                user_msg.textContent = "You: " + user_input;
+                msg_list.appendChild(user_msg);
+
+                socket.emit('message from user', user_input);
+                document.querySelector('#userMessage').value = '';
+                scrollToBottom();
+            }
+        };
+
+        // Assuming your 'Send' button calls sendFunction() on click
+        document.querySelector('#sendButton').addEventListener('click', sendFunction);
+
+        document.querySelector('#userMessage').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault(); // Prevents the default action of the enter key
+                sendFunction();
+            }
+        });
+
+        socket.on('message from server', (msg) => {
+            let msg_list = document.querySelector('#messages');
+            let new_msg = document.createElement('li');
+            new_msg.textContent = "Seraphima: " + msg;
+            msg_list.appendChild(new_msg);
+            scrollToBottom();
+        });
+
+        function scrollToBottom() {
+            var messages = document.querySelector('#messages');
+            messages.scrollTop = messages.scrollHeight;
+        }
+    });
+
+</script>
+</head>
+<body>
+    <div id="chat-container">
+        <h2 id="chat-title">Stars are always there for you</h2>
+        <ul id="messages"></ul>
+        <input type="text" id="userMessage">
+        <button id="sendButton">Send</button>
+    </div>
+</body>
+</html>
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:44:21] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:44:21] "GET /socket.io/?EIO=4&transport=polling&t=OuweReW HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:44:21.288590 - Request: GET http://127.0.0.1:5001/static/astro_stars.webp - Data: None
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:44:21] "[35m[1mGET /static/astro_stars.webp HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:44:21] "POST /socket.io/?EIO=4&transport=polling&t=OuweRfm&sid=xZGxNvsf_ZBBxgDBAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:44:21] "GET /socket.io/?EIO=4&transport=polling&t=OuweRfn&sid=xZGxNvsf_ZBBxgDBAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:44:21] "GET /socket.io/?EIO=4&transport=polling&t=OuweRhf&sid=xZGxNvsf_ZBBxgDBAAAC HTTP/1.1" 200 -
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:46:38] "GET /socket.io/?EIO=4&transport=polling&t=OuwezBa HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:46:38] "POST /socket.io/?EIO=4&transport=polling&t=OuwezBi&sid=-ur0VMUjKi86Q9sNAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:46:38] "GET /socket.io/?EIO=4&transport=polling&t=OuwezBj&sid=-ur0VMUjKi86Q9sNAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:46:45] "GET /socket.io/?EIO=4&transport=websocket&sid=-ur0VMUjKi86Q9sNAAAA HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:46:45.018225 - Request: GET http://127.0.0.1:5001/ - Data: None
+INFO:main:Home page requested
+INFO:root:2024-03-13 18:46:45.040560 - Request: GET / - Response: 200 OK
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:46:45] "GET / HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:46:45.177126 - Request: GET http://127.0.0.1:5001/static/astro_stars.webp - Data: None
+INFO:root:2024-03-13 18:46:45.178423 - Request: GET /static/astro_stars.webp - Response: 200 OK
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:46:45] "GET /static/astro_stars.webp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:46:45] "GET /socket.io/?EIO=4&transport=polling&t=Ouwe-o2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:46:45] "POST /socket.io/?EIO=4&transport=polling&t=Ouwe-pr&sid=_3t0n9-j_KScgPJsAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:46:45] "GET /socket.io/?EIO=4&transport=polling&t=Ouwe-ps&sid=_3t0n9-j_KScgPJsAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:46:45] "GET /socket.io/?EIO=4&transport=polling&t=Ouwe-rA&sid=_3t0n9-j_KScgPJsAAAC HTTP/1.1" 200 -
+INFO:main:Sending message to OpenAI API: Hello!
+INFO:main:Received response from OpenAI API
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:Sending message to OpenAI API: What is my destiny?
+INFO:main:Received response from OpenAI API
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:Sending message to OpenAI API: Thank you! I really needed to hear that today.
+INFO:main:Received response from OpenAI API
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:52:59] "GET /socket.io/?EIO=4&transport=websocket&sid=_3t0n9-j_KScgPJsAAAC HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:52:59.825307 - Request: GET http://127.0.0.1:5001/ - Data: None
+INFO:main:Home page requested
+INFO:root:2024-03-13 18:52:59.849463 - Request: GET / - Response: 200 OK
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:52:59] "GET / HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:53:00.140895 - Request: GET http://127.0.0.1:5001/static/astro_stars.webp - Data: None
+INFO:root:2024-03-13 18:53:00.142020 - Request: GET /static/astro_stars.webp - Response: 304 NOT MODIFIED
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:00] "[36mGET /static/astro_stars.webp HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:00] "GET /socket.io/?EIO=4&transport=polling&t=OuwgQLw HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:00] "POST /socket.io/?EIO=4&transport=polling&t=OuwgQNN&sid=XiZVhGIdlViEmgIYAAAE HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:00] "GET /socket.io/?EIO=4&transport=polling&t=OuwgQNO&sid=XiZVhGIdlViEmgIYAAAE HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:01] "GET /socket.io/?EIO=4&transport=polling&t=OuwgQXf&sid=XiZVhGIdlViEmgIYAAAE HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:19] "GET /socket.io/?EIO=4&transport=websocket&sid=XiZVhGIdlViEmgIYAAAE HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:53:19.212794 - Request: GET http://127.0.0.1:5001/ - Data: None
+INFO:main:Home page requested
+INFO:root:2024-03-13 18:53:19.215243 - Request: GET / - Response: 200 OK
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:19] "GET / HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:53:19.345648 - Request: GET http://127.0.0.1:5001/static/astro_stars.webp - Data: None
+INFO:root:2024-03-13 18:53:19.346281 - Request: GET /static/astro_stars.webp - Response: 304 NOT MODIFIED
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:19] "[36mGET /static/astro_stars.webp HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:19] "GET /socket.io/?EIO=4&transport=polling&t=OuwgV0p HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:19] "POST /socket.io/?EIO=4&transport=polling&t=OuwgV2l&sid=gE29mcUldaJgkyKDAAAG HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:19] "GET /socket.io/?EIO=4&transport=polling&t=OuwgV2m&sid=gE29mcUldaJgkyKDAAAG HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:19] "GET /socket.io/?EIO=4&transport=polling&t=OuwgV4G&sid=gE29mcUldaJgkyKDAAAG HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:27] "GET /socket.io/?EIO=4&transport=websocket&sid=gE29mcUldaJgkyKDAAAG HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:53:27.610699 - Request: GET http://127.0.0.1:5001/ - Data: None
+INFO:main:Home page requested
+INFO:root:2024-03-13 18:53:27.612687 - Request: GET / - Response: 200 OK
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:27] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:27] "GET /socket.io/?EIO=4&transport=polling&t=OuwgX3s HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:53:27.806529 - Request: GET http://127.0.0.1:5001/static/astro_stars.webp - Data: None
+INFO:root:2024-03-13 18:53:27.824506 - Request: GET /static/astro_stars.webp - Response: 304 NOT MODIFIED
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:27] "[36mGET /static/astro_stars.webp HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:27] "POST /socket.io/?EIO=4&transport=polling&t=OuwgX53&sid=pGzxvEKf8DEfTfM3AAAI HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:27] "GET /socket.io/?EIO=4&transport=polling&t=OuwgX54&sid=pGzxvEKf8DEfTfM3AAAI HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:28] "GET /socket.io/?EIO=4&transport=polling&t=OuwgX6k&sid=pGzxvEKf8DEfTfM3AAAI HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:35] "GET /socket.io/?EIO=4&transport=websocket&sid=pGzxvEKf8DEfTfM3AAAI HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:53:35.639571 - Request: GET http://127.0.0.1:5001/ - Data: None
+INFO:main:Home page requested
+INFO:root:2024-03-13 18:53:35.644272 - Request: GET / - Response: 200 OK
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:35] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:35] "GET /socket.io/?EIO=4&transport=polling&t=OuwgZ1c HTTP/1.1" 200 -
+INFO:root:2024-03-13 18:53:35.855330 - Request: GET http://127.0.0.1:5001/static/astro_stars.webp - Data: None
+INFO:root:2024-03-13 18:53:35.883771 - Request: GET /static/astro_stars.webp - Response: 304 NOT MODIFIED
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:35] "[36mGET /static/astro_stars.webp HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:35] "POST /socket.io/?EIO=4&transport=polling&t=OuwgZ2n&sid=nCAzQE2T6GiA53X0AAAK HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:35] "GET /socket.io/?EIO=4&transport=polling&t=OuwgZ2o&sid=nCAzQE2T6GiA53X0AAAK HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:36] "GET /socket.io/?EIO=4&transport=polling&t=OuwgZ4L&sid=nCAzQE2T6GiA53X0AAAK HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:53:36] "GET /socket.io/?EIO=4&transport=polling&t=OuwgZ5M&sid=nCAzQE2T6GiA53X0AAAK HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:58:02] "GET /socket.io/?EIO=4&transport=polling&t=OuwhaAw HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:58:02] "POST /socket.io/?EIO=4&transport=polling&t=OuwhaB3&sid=fZF4PdAwcqdMN7FmAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 18:58:02] "GET /socket.io/?EIO=4&transport=polling&t=OuwhaB4&sid=fZF4PdAwcqdMN7FmAAAA HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:00:23] "GET /socket.io/?EIO=4&transport=polling&t=Ouwi6aQ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:00:23] "POST /socket.io/?EIO=4&transport=polling&t=Ouwi6dV&sid=f6LsRESl_4L1MqI7AAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:00:23] "GET /socket.io/?EIO=4&transport=polling&t=Ouwi6dW&sid=f6LsRESl_4L1MqI7AAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:00:24] "GET /socket.io/?EIO=4&transport=websocket&sid=f6LsRESl_4L1MqI7AAAA HTTP/1.1" 200 -
+INFO:main:Home page requested
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:00:24] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:00:24] "[36mGET /static/astro_stars.webp HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:00:24] "GET /socket.io/?EIO=4&transport=polling&t=Ouwi6sm HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:00:24] "POST /socket.io/?EIO=4&transport=polling&t=Ouwi6u7&sid=Guh73Uv91cUBd42gAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:00:24] "GET /socket.io/?EIO=4&transport=polling&t=Ouwi6u8&sid=Guh73Uv91cUBd42gAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:00:25] "GET /socket.io/?EIO=4&transport=polling&t=Ouwi72A&sid=Guh73Uv91cUBd42gAAAC HTTP/1.1" 200 -
+INFO:main:2024-03-13 19:00:32.168822 - User Input: Horaaaay!
+ERROR:main:2024-03-13 19:00:32.170231 - Error calling OpenAI API: Missing required arguments; Expected either ('messages' and 'model') or ('messages', 'model' and 'stream') arguments to be given
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:2024-03-13 19:00:46.805742 - User Input: Hmm
+ERROR:main:2024-03-13 19:00:46.806912 - Error calling OpenAI API: Missing required arguments; Expected either ('messages' and 'model') or ('messages', 'model' and 'stream') arguments to be given
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:02:15] "GET /socket.io/?EIO=4&transport=polling&t=OuwiXy1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:02:15] "POST /socket.io/?EIO=4&transport=polling&t=OuwiXy9&sid=UPqdWOsQt72f9yQqAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:02:15] "GET /socket.io/?EIO=4&transport=polling&t=OuwiXyA&sid=UPqdWOsQt72f9yQqAAAA HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:04:35] "GET /socket.io/?EIO=4&transport=polling&t=Ouwj3si HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:04:35] "POST /socket.io/?EIO=4&transport=polling&t=Ouwj3_4&sid=Mdn3jD0ZGyYuqqPQAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:04:35] "GET /socket.io/?EIO=4&transport=polling&t=Ouwj3_4.0&sid=Mdn3jD0ZGyYuqqPQAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:04:37] "GET /socket.io/?EIO=4&transport=websocket&sid=Mdn3jD0ZGyYuqqPQAAAA HTTP/1.1" 200 -
+INFO:main:Home page requested
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:04:37] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:04:37] "GET /socket.io/?EIO=4&transport=polling&t=Ouwj4fg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:04:37] "[36mGET /static/astro_stars.webp HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:04:37] "GET /socket.io/?EIO=4&transport=polling&t=Ouwj4g_&sid=w6Ylq3BhfG8gWLhFAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:04:37] "POST /socket.io/?EIO=4&transport=polling&t=Ouwj4g-&sid=w6Ylq3BhfG8gWLhFAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:04:38] "GET /socket.io/?EIO=4&transport=polling&t=Ouwj4rp&sid=w6Ylq3BhfG8gWLhFAAAC HTTP/1.1" 200 -
+INFO:main:2024-03-13 19:04:46.913415 - User Input: I am tired
+ERROR:main:2024-03-13 19:04:46.913681 - Error calling OpenAI API: 'OpenAI' object has no attribute 'create_completion'
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:06:44] "GET /socket.io/?EIO=4&transport=polling&t=OuwjZd8 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:06:44] "POST /socket.io/?EIO=4&transport=polling&t=OuwjZdG&sid=n-C6lKRrIP9mDOhSAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:06:44] "GET /socket.io/?EIO=4&transport=polling&t=OuwjZdH&sid=n-C6lKRrIP9mDOhSAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:06:48] "GET /socket.io/?EIO=4&transport=websocket&sid=n-C6lKRrIP9mDOhSAAAA HTTP/1.1" 200 -
+INFO:main:Home page requested
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:06:48] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:06:48] "GET /socket.io/?EIO=4&transport=polling&t=OuwjadZ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:06:48] "[36mGET /static/astro_stars.webp HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:06:48] "POST /socket.io/?EIO=4&transport=polling&t=Ouwjaeq&sid=hn9MLxqu3uZ2aPwBAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:06:48] "GET /socket.io/?EIO=4&transport=polling&t=Ouwjaer&sid=hn9MLxqu3uZ2aPwBAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:06:49] "GET /socket.io/?EIO=4&transport=polling&t=Ouwjagq&sid=hn9MLxqu3uZ2aPwBAAAC HTTP/1.1" 200 -
+INFO:main:2024-03-13 19:06:53.447334 - User Input: Hello
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:main:2024-03-13 19:06:54.159398 - Error calling OpenAI API: 'ChatCompletion' object is not subscriptable
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:08:56] "GET /socket.io/?EIO=4&transport=polling&t=Ouwk3rc HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:08:56] "POST /socket.io/?EIO=4&transport=polling&t=Ouwk3rj&sid=rGs3nhMJY8de7MqoAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:08:56] "GET /socket.io/?EIO=4&transport=polling&t=Ouwk3rk&sid=rGs3nhMJY8de7MqoAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:23] "GET /socket.io/?EIO=4&transport=websocket&sid=rGs3nhMJY8de7MqoAAAA HTTP/1.1" 200 -
+INFO:main:Home page requested
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:23] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:23] "[36mGET /static/astro_stars.webp HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:24] "GET /socket.io/?EIO=4&transport=polling&t=OuwkAXA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:24] "POST /socket.io/?EIO=4&transport=polling&t=OuwkAZ4&sid=owSTaYUgr27jgXojAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:24] "GET /socket.io/?EIO=4&transport=polling&t=OuwkAZ5&sid=owSTaYUgr27jgXojAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:24] "GET /socket.io/?EIO=4&transport=polling&t=OuwkAaR&sid=owSTaYUgr27jgXojAAAC HTTP/1.1" 200 -
+INFO:main:2024-03-13 19:09:28.025038 - User Input: Hello!
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR:main:2024-03-13 19:09:28.850114 - Error calling OpenAI API: 'ChatCompletionMessage' object is not subscriptable
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:main:Home page requested
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:55] "[36mGET /static/astro_stars.webp HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:55] "GET /socket.io/?EIO=4&transport=polling&t=OuwkIHO HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:55] "POST /socket.io/?EIO=4&transport=polling&t=OuwkIJH&sid=9LAvasq9hTXUyxHvAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:55] "GET /socket.io/?EIO=4&transport=polling&t=OuwkIJI&sid=9LAvasq9hTXUyxHvAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:09:56] "GET /socket.io/?EIO=4&transport=polling&t=OuwkIKc&sid=9LAvasq9hTXUyxHvAAAA HTTP/1.1" 200 -
+INFO:main:2024-03-13 19:10:00.843847 - User Input: Hello!
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:2024-03-13 19:10:01.550807 - Model Response: Hello! How can I assist you today?
+INFO:main:2024-03-13 19:10:16.169257 - User Input: I would love to know more about my destiny?
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:2024-03-13 19:10:19.163068 - Model Response: I'm here to help you explore your destiny! Destiny is a complex concept that can mean different things to different people. Some believe that destiny is predetermined and cannot be changed, while others believe that we have the power to shape our own destinies through our choices and actions.
+
+If you're looking for guidance on your path or purpose in life, I recommend reflecting on your values, passions, and goals. Consider what brings you joy and fulfillment, and how you can align your actions with your deepest desires. It may also be helpful to seek out the advice of a trusted mentor, counselor, or spiritual advisor.
+
+Remember that your destiny is not set in stone – you have the power to create the life you want. Trust in yourself and follow your intuition as you navigate your journey towards fulfilling your destiny.
+INFO:main:2024-03-13 19:10:33.023312 - User Input: Do you need my date of birth?
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:2024-03-13 19:10:35.079113 - Model Response: I appreciate your willingness to share your date of birth, but as an AI assistant, I do not require personal information such as your date of birth to provide guidance or support. If you have specific questions or topics you'd like to explore further, feel free to share them with me, and I'll do my best to assist you. Remember to always prioritize your privacy and only share personal information with trusted sources.
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:12:16] "GET /socket.io/?EIO=4&transport=polling&t=Ouwkqgc HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:12:16] "POST /socket.io/?EIO=4&transport=polling&t=Ouwkqh4&sid=mTWuGvg5ofkf0dZHAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:12:16] "GET /socket.io/?EIO=4&transport=polling&t=Ouwkqh5&sid=mTWuGvg5ofkf0dZHAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:12:19] "GET /socket.io/?EIO=4&transport=websocket&sid=mTWuGvg5ofkf0dZHAAAA HTTP/1.1" 200 -
+INFO:main:Home page requested
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:12:19] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:12:19] "[36mGET /static/astro_stars.webp HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:12:19] "GET /socket.io/?EIO=4&transport=polling&t=OuwkrSr HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:12:20] "POST /socket.io/?EIO=4&transport=polling&t=OuwkrUp&sid=6oLevcPHe8sv9WQgAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:12:20] "GET /socket.io/?EIO=4&transport=polling&t=OuwkrUq&sid=6oLevcPHe8sv9WQgAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:12:20] "GET /socket.io/?EIO=4&transport=polling&t=OuwkrWA&sid=6oLevcPHe8sv9WQgAAAC HTTP/1.1" 200 -
+INFO:main:2024-03-13 19:12:23.151399 - User Input: Hey!
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:2024-03-13 19:12:24.718651 - Model Response: Hello, dear! The stars are aligned in your favor today. Embrace the opportunities coming your way and trust that everything will work out beautifully. Stay positive and keep shining bright! ✨🌟 #SeraphimaBliss #AstrologyPredictions
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:13:05] "GET /socket.io/?EIO=4&transport=polling&t=Ouwl0eu HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:13:05] "POST /socket.io/?EIO=4&transport=polling&t=Ouwl0f1&sid=xavndUiDXNIeJbIxAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:13:05] "GET /socket.io/?EIO=4&transport=polling&t=Ouwl0f2&sid=xavndUiDXNIeJbIxAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:13:07] "GET /socket.io/?EIO=4&transport=websocket&sid=xavndUiDXNIeJbIxAAAA HTTP/1.1" 200 -
+INFO:main:Home page requested
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:13:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:13:07] "GET /socket.io/?EIO=4&transport=polling&t=Ouwl12u HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:13:07] "[36mGET /static/astro_stars.webp HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:13:07] "POST /socket.io/?EIO=4&transport=polling&t=Ouwl14w&sid=V_ti6-rdluCjdViTAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:13:07] "GET /socket.io/?EIO=4&transport=polling&t=Ouwl14w.0&sid=V_ti6-rdluCjdViTAAAC HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:13:07] "GET /socket.io/?EIO=4&transport=polling&t=Ouwl16L&sid=V_ti6-rdluCjdViTAAAC HTTP/1.1" 200 -
+INFO:main:2024-03-13 19:14:00.416745 - User Input: I need your help
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:2024-03-13 19:14:01.236559 - Model Response: Of course! Remember, challenges are just opportunities in disguise. Embrace the unknown with confidence and positivity.
+INFO:main:2024-03-13 19:14:12.327659 - User Input: What is waiting for me?
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:2024-03-13 19:14:13.657841 - Model Response: Exciting new opportunities are on the horizon for you! Stay open to unexpected blessings and trust that the universe has wonderful things in store for you.
+INFO:main:2024-03-13 19:14:33.142062 - User Input: You are such a blessing. I could talk to you forever
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:main:2024-03-13 19:14:34.239264 - Model Response: Thank you for your kind words! Remember, the connections we make with others are a beautiful part of our journey. Cherish each moment and spread love wherever you go.

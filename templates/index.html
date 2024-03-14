@@ -9,58 +9,54 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: #f4f4f9;
-    }
-    #chat-container {
-        width: 90%;
-        max-width: 600px;
-        background: rgba(255, 255, 255, 0.5);
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    #messages {
-        list-style-type: none;
-        padding: 0;
-        height: 300px;
-        overflow-y: auto;
-        margin-bottom: 20px;
-        border: 1px solid #e1e1e8;
-        border-radius: 8px;
-        padding: 10px;
-    }
-    #messages li {
-        padding: 8px 16px;
-        margin: 5px 0;
-        border-radius: 20px;
-    }
-    #userMessage {
-        width: calc(100% - 90px);
-        padding: 10px;
-        border-radius: 20px;
-        border: 1px solid #ddd;
-        margin-right: 10px;
-    }
-    #sendButton {
-        width: 80px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 20px;
-        padding: 10px;
-        cursor: pointer;
-    }
-    #sendButton {
-    background-color: #00008B; /* Match dark blue color */
-    font-family: 'Cinzel', serif; /* Match font */
-    }
-
-
-        body {
         background-image: url('/static/astro_stars.webp');
         background-size: cover;
         background-position: center;
         color: #ffffff;
+    }
+    #chat-container {
+        width: 90%;
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    #messages {
+        list-style-type: none;
+        padding: 10px;
+        height: 300px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.2); /* Softer border */
+        border-radius: 8px; /* Rounded corners */
+        background: rgba(255, 255, 255, 0.8); /* Lighter background for readability */
+    }
+    #messages li {
+        background: rgba(255, 255, 255, 0.8); /* Messages are more readable */
+        color: #000; /* Text color */
+        padding: 8px 16px;
+        margin-bottom: 10px; /* Ensure consistent spacing */
+        border-radius: 20px;
+    }
+    #userMessage {
+        width: calc(100% - 25px);
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        margin-right: 10px;
+        margin-top: 1px; /* Adjusted spacing */
+    }
+    #sendButton {
+        width: 80px;
+        background-color: #00008B; /* Match dark blue color */
+        color: white;
+        font-family: 'Cinzel', serif; /* Match font */
+        border: none;
+        border-radius: 20px;
+        padding: 10px;
+        cursor: pointer;
+        margin-top: 10px; /* Adjusted spacing */
     }
     #chat-title {
         text-align: center;
@@ -68,26 +64,10 @@
         font-size: 36px;
         margin: 20px 0;
         font-weight: bold;
-        color: #00008B;
-    }
-
-    #messages {
-    background: rgba(255, 255, 255, 0.8); /* Lighter background */
-    border: 1px solid rgba(0, 0, 0, 0.2); /* Softer border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 10px;
-    /* ... */
-    }
-
-    #messages li {
-        background: rgba(255, 255, 255, 0.8); /* Messages are more readable on the dark background */
-        color: #000; /* Text color */
-        margin-bottom: 10px;
-    }
-    #userMessage, #sendButton {
-        margin-top: 10px; /* Adjust spacing */
+        color: #00008B; /* Dark blue */
     }
 </style>
+
 
     <meta charset="UTF-8">
 <title>Chatbot</title>
@@ -133,7 +113,7 @@
         socket.on('message from server', (msg) => {
             let msg_list = document.querySelector('#messages');
             let new_msg = document.createElement('li');
-            new_msg.textContent = "Angela: " + msg;
+            new_msg.textContent = "Seraphima: " + msg;
             msg_list.appendChild(new_msg);
             scrollToBottom();
         });
