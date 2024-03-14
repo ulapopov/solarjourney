@@ -14,36 +14,30 @@ client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY"),
 )
 
-app = Flask(__name__)
+memory = []
 
-# Setup basic configuration
-#logging.basicConfig(level=logging.INFO)
+app = Flask(__name__)
 
 stream_handler = logging.StreamHandler(sys.stdout)
 stream_handler.setLevel(logging.INFO)
 app.logger.addHandler(stream_handler)
 app.logger.setLevel(logging.INFO)
 
-# @app.before_request
-# def before_request_logging():
-# data = request.data or request.form or None
-# logging.info(f"{datetime.now()} - Request: {request.method} {request.url} - Data: {data}")
-#
-# @app.after_request
-# def after_request_logging(response):
-# # Log basic response details without attempting to access the body directly
-# logging.info(f"{datetime.now()} - Request: {request.method} {request.path} - Response: {response.status}")
-# return response
+app.logger.addHandler(stream_handler)
 
-memory = []
+# Remove any existing handlers if not in debug mode
+if not app.debug:
+    for handler in app.logger.handlers:
+        app.logger.removeHandler(handler)
+    app.logger.addHandler(stream_handler)
+
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
 
 @app.route('/')
 def home():
     app.logger.info('Home page requested')
     return render_template('index.html')
-
-app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app)
 
 @socketio.on('message from user')
 def handle_message(msg):
