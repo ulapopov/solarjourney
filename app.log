@@ -778,3 +778,13 @@ INFO:main:2024-03-13 19:14:13.657841 - Model Response: Exciting new opportunitie
 INFO:main:2024-03-13 19:14:33.142062 - User Input: You are such a blessing. I could talk to you forever
 INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 INFO:main:2024-03-13 19:14:34.239264 - Model Response: Thank you for your kind words! Remember, the connections we make with others are a beautiful part of our journey. Cherish each moment and spread love wherever you go.
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug:Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 121-655-450
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:24:12] "GET /socket.io/?EIO=4&transport=polling&t=OuwnZU6 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:24:12] "POST /socket.io/?EIO=4&transport=polling&t=OuwnZUH&sid=5yr2Fy7M7y0Jh-8sAAAA HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2024 19:24:12] "GET /socket.io/?EIO=4&transport=polling&t=OuwnZUI&sid=5yr2Fy7M7y0Jh-8sAAAA HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/ula/PycharmProjects/AngelaPearl/main.py', reloading
+INFO:werkzeug: * Restarting with stat

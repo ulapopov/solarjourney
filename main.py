@@ -1,10 +1,12 @@
+import logging
 import openai
 import os
-import logging
+import sys
 
 from datetime import datetime
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO
+from logging import StreamHandler
 from openai import OpenAI
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
@@ -14,8 +16,18 @@ client = OpenAI(
 
 app = Flask(__name__)
 
-# Setup logging
-logging.basicConfig(filename='app.log', level=logging.INFO)
+# Setup basic configuration
+logging.basicConfig(level=logging.INFO)
+
+# Create a stream handler that logs to stdout
+stream_handler = StreamHandler(sys.stdout)
+stream_handler.setLevel(logging.INFO)
+
+# Get the logger for your Flask app and add the stream handler to it
+app.logger.addHandler(stream_handler)
+
+
+
 
 # @app.before_request
 # def before_request_logging():
@@ -28,17 +40,6 @@ logging.basicConfig(filename='app.log', level=logging.INFO)
 # logging.info(f"{datetime.now()} - Request: {request.method} {request.path} - Response: {response.status}")
 # return response
 
-app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app)
-
-@socketio.on('message from user')
-def handle_message_from_user(message):
-    logging.info(f"{datetime.now()} - SocketIO Message from User: {message}")
-    # Your logic here
-    response_message = "Your response logic here"
-    emit('message from server', response_message)
-    logging.info(f"{datetime.now()} - SocketIO Message to User: {response_message}")
-
 memory = []
 
 @app.route('/')
@@ -46,6 +47,8 @@ def home():
     app.logger.info('Home page requested')
     return render_template('index.html')
 
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
 
 @socketio.on('message from user')
 def handle_message(msg):
