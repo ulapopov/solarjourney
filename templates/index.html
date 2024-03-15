@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-evenly;
             align-items: center;
             background-color: #ececec; /* Background color */
             background-image: url('/static/astro_stars.webp');
@@ -21,46 +21,48 @@
         }
 
         .content-container {
-            width: 80%; /* Container width */
-            max-width: 1200px; /* Maximum width */
-            margin-top: -100px; /* Adjust as needed for your layout */
-            margin-right: 10%;
             display: grid;
-            grid-template-columns: 2fr 3fr; /* Split into two columns */
-            gap: 20px; /* Space between title and chat area */
-            align-items: center;
+            grid-template-columns: 2fr 1fr; /* 2/3 and 1/3 split */
+            height: 100vh;
+        }
+
+        .left-section {
+            display: grid;
+            grid-template-rows: 1fr 2fr; /* 1/3 for title, 2/3 for elements */
+            height: 100%;
         }
 
         .title {
+            /* Style your title here */
             font-family: 'Cinzel', serif;
-            font-size: 64px; /* Large font size for the title */
-            color: #333; /* Title color */
-            text-align: left;
-            margin-top: -45vh;
-        }
-
-        @media (min-width: 768px) {
-            .title {
-                margin-top: -45vh; /* A bit more negative margin for larger screens */
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .title {
-                margin-top: -35vh; /* Slightly less negative for very large screens, adjust as needed */
-            }
+            font-size: 64px;
+            color: #333;
+            text-align: center; /* Adjust based on your preference */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 100px;
+            padding-right: 100px;
         }
 
         .elements-container {
-            display: flex; /* Aligns elements horizontally */
-            justify-content: space-between; /* Distributes spacing evenly */
-            gap: 10vw;
-
+            display: flex;
+            justify-content: space-around; /* Adjust this to manage spacing between elements */
+            gap: 2vw; /* Dynamic spacing */
         }
 
-        .element {
-            /* Individual element styling */
+        .element img {
+            width: 100%;
+            max-width: 120px; /* Limits image size */
+            height: auto;
         }
+
+        .element h2 {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+
 
 
     .chat-area {
@@ -106,17 +108,7 @@
         border: 1px solid #ddd;
         box-sizing: border-box; /* Include padding and border in the width */
     }
-    #sendButton {
-        width: 80px;
-        background-color: #00008B; /* Match dark blue color */
-        color: white;
-        font-family: 'Cinzel', serif; /* Match font */
-        border: none;
-        border-radius: 20px;
-        padding: 10px;
-        cursor: pointer;
-        margin-top: 10px; /* Adjusted spacing */
-    }
+
     #chat-title {
         text-align: center;
         font-family: 'Cinzel', serif;
@@ -186,27 +178,38 @@
 </script>
 </head>
 <body>
-    <div class="content-container">
+
+<div class="content-container">
+    <div class="left-section">
         <div class="title">
             Stars are always there for You
         </div>
 
-        <div class="chat-area">
-            <ul id="messages">
-                <li>Seraphima: I am so glad to see you here today!</li>
-                <!-- Further messages will be appended here -->
-            </ul>
-            <input type="text" id="userMessage" placeholder="Type your message here...">
-            <!-- sendButton removed as per requirement -->
-        </div>
-
         <div class="elements-container">
-            <div class="element">Element 1</div>
-            <div class="element">Element 2</div>
-            <div class="element">Element 3</div>
+            <div class="element">
+                <img src="static/tarot.webp">
+                <h2>Tarot</h2>
+            </div>
+            <div class="element">
+                <img src="static/numerology.webp">
+                <h2>Numerology</h2>
+            </div>
+            <div class="element">
+                <img src="static/natal_chart.webp">
+                <h2>Natal Chart</h2>
+            </div>
         </div>
-
     </div>
-    <!-- Existing scripts -->
+
+    <div class="right-section">
+        <ul id="messages">
+            <li>Seraphima: I am so glad to see you here today!</li>
+            <!-- Further messages will be appended here -->
+        </ul>
+        <input type="text" id="userMessage" placeholder="Type your message here...">
+    </div>
+
+</div>
+
 </body>
 </html>
