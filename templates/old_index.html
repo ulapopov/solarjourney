@@ -36,32 +36,7 @@
             font-size: 64px; /* Large font size for the title */
             color: #333; /* Title color */
             text-align: left;
-            margin-top: -45vh;
         }
-
-        @media (min-width: 768px) {
-            .title {
-                margin-top: -45vh; /* A bit more negative margin for larger screens */
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .title {
-                margin-top: -35vh; /* Slightly less negative for very large screens, adjust as needed */
-            }
-        }
-
-        .elements-container {
-            display: flex; /* Aligns elements horizontally */
-            justify-content: space-between; /* Distributes spacing evenly */
-            gap: 10vw;
-
-        }
-
-        .element {
-            /* Individual element styling */
-        }
-
 
     .chat-area {
         background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
@@ -190,7 +165,6 @@
         <div class="title">
             Stars are always there for You
         </div>
-
         <div class="chat-area">
             <ul id="messages">
                 <li>Seraphima: I am so glad to see you here today!</li>
@@ -199,13 +173,6 @@
             <input type="text" id="userMessage" placeholder="Type your message here...">
             <!-- sendButton removed as per requirement -->
         </div>
-
-        <div class="elements-container">
-            <div class="element">Element 1</div>
-            <div class="element">Element 2</div>
-            <div class="element">Element 3</div>
-        </div>
-
     </div>
     <!-- Existing scripts -->
 </body>
