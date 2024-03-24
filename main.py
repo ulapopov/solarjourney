@@ -39,6 +39,18 @@ def home():
     app.logger.info('Home page requested')
     return render_template('index.html')
 
+@app.route('/tarot')
+def tarot():
+    return render_template('tarot.html')
+
+@app.route('/numerology')
+def numerology():
+    return render_template('numerology.html')
+
+@app.route('/natal_chart')
+def natal_chart():
+    return render_template('natal_chart.html')
+
 @socketio.on('message from user')
 def handle_message(msg):
     try:

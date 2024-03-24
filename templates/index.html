@@ -6,6 +6,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 
     <style>
+        * {
+        box-sizing: border-box;
+        }
+
         body, html {
             min-width: 100%;
             height: 100%;
@@ -27,10 +31,12 @@
         }
 
         .left-section {
-            display: grid;
-            grid-template-rows: 1fr 2fr; /* 1/3 for title, 2/3 for elements */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around; /* This spreads out the title and elements */
             height: 100%;
         }
+
 
         .title {
             /* Style your title here */
@@ -53,7 +59,7 @@
 
         .element img {
             width: 100%;
-            max-width: 120px; /* Limits image size */
+            max-width: 15vw; /* Limits image size */
             height: auto;
         }
 
@@ -62,61 +68,48 @@
             margin-top: 10px;
         }
 
+        #messages {
+            word-wrap: break-word; /* This will break long words to prevent horizontal scrolling */
+            overflow-wrap: break-word;
+            list-style-type: none;
+            padding: 10px;
+            height: 90%; /* Adjusted to fill the chat area, leaving space for input */
+            width: 90%;
+            overflow-y: auto;
+            margin-bottom: 20px; /* You might adjust or remove this based on your layout */
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            max-height: 90vh;
+        }
 
+        #messages li {
+            background: rgba(255, 255, 255, 0.8); /* Messages are more readable */
+            color: #000; /* Text color */
+            padding: 8px 16px;
+            margin-bottom: 10px; /* Ensure consistent spacing */
+            border-radius: 20px;
+            word-wrap: break-word; /* Ensures long words do not extend the container */
+            max-width: 100%;
+        }
 
+        #userMessage {
+            width: calc(90% - 20px); /* Adjust width to match container */
+            margin: 0 10px; /* Aligns with messages margin */
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            box-sizing: border-box; /* Include padding and border in the width */
+        }
 
-    .chat-area {
-        background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-        padding: 2%; /* Use percentage for padding */
-        border-radius: 15px; /* Rounded corners */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        display: flex;
-        flex-direction: column;
-        width: 80%; /* Adjustable width */
-        height: 80vh; /* Adjustable height based on the viewport */
-        max-width: 800px; /* Maximum width to keep it reasonable on very large screens */
-        max-height: 90vh; /* Maximum height to ensure it doesn't take up the entire screen */
-        margin-left: 22%; /* Centering the chat area horizontally */
-        margin-right: auto; /* Centering the chat area horizontally */
-        margin-top: 10%;
-    }
-
-    #messages {
-        list-style-type: none;
-        padding: 10px;
-        height: 90%; /* Adjusted to fill the chat area, leaving space for input */
-        overflow-y: auto;
-        margin-bottom: 20px; /* You might adjust or remove this based on your layout */
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.8);
-    }
-
-    #messages li {
-        background: rgba(255, 255, 255, 0.8); /* Messages are more readable */
-        color: #000; /* Text color */
-        padding: 8px 16px;
-        margin-bottom: 10px; /* Ensure consistent spacing */
-        border-radius: 20px;
-    }
-
-    #userMessage {
-        width: calc(100% - 20px); /* Adjust width to match container */
-        margin: 0 10px; /* Aligns with messages margin */
-        padding: 10px;
-        border-radius: 20px;
-        border: 1px solid #ddd;
-        box-sizing: border-box; /* Include padding and border in the width */
-    }
-
-    #chat-title {
-        text-align: center;
-        font-family: 'Cinzel', serif;
-        font-size: 36px;
-        margin: 20px 0;
-        font-weight: bold;
-        color: #00008B; /* Dark blue */
-    }
+        #chat-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #00008B; /* Dark blue */
+        }
 </style>
 
 
@@ -187,23 +180,29 @@
 
         <div class="elements-container">
             <div class="element">
-                <img src="static/tarot.webp">
-                <h2>Tarot</h2>
+                <a href="tarot.html">
+                    <img src="static/tarot.webp" alt="Tarot">
+                    <h2>Tarot</h2>
+                </a>
             </div>
             <div class="element">
-                <img src="static/numerology.webp">
-                <h2>Numerology</h2>
+                <a href="numerology.html">
+                    <img src="static/numerology.webp">
+                    <h2>Numerology</h2>
+                </a>
             </div>
             <div class="element">
-                <img src="static/natal_chart.webp">
-                <h2>Natal Chart</h2>
+                <a href="templates/natal_chart.html">
+                    <img src="static/natal_chart.webp">
+                    <h2>Natal Chart</h2>
+                </a>
             </div>
         </div>
     </div>
 
     <div class="right-section">
         <ul id="messages">
-            <li>Seraphima: I am so glad to see you here today!</li>
+            <li>Seraphima: I am so glad to see you here today! How are you doing? </li>
             <!-- Further messages will be appended here -->
         </ul>
         <input type="text" id="userMessage" placeholder="Type your message here...">
